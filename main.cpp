@@ -1,26 +1,15 @@
-#include <iostream>
-#include "task.h"
-using namespace std;
+// main.cpp
+#include "task_list.h"
+#include "user_interface.h"
 
-int main()
-{
+int main() {
+    TaskList taskList;
+
     int choice;
-    cout << "--------------To Do List App--------------\n";
-    cout<<"         1. Add Task" << endl;
-    cout<<"         2. View Tasks" << endl;
-    cout<<"         3. Update Task Status" << endl;
-    cout<<"         4. Delete Task"<< endl;
-    cout<<"         5. Exit" << endl;
-    cout<<"Enter your choice: " << endl;
-    cin >> choice;
-    switch (choice)
-    {
-    case 1:
-        AddTask();
-        break;
-    
-    default:
-        break;
-    }
+    do {
+        UserInterface::displayMenu();
+        UserInterface::handleUserInput(taskList);
+    } while (choice != 7);
+
     return 0;
 }
